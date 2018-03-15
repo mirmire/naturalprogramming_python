@@ -11,6 +11,7 @@ import random
 #  This program is a simple computer game in which the player has to
 #  guess the characters of a word, or the player may also try to guess
 #  the whole word.
+played_words = []
 
 
 def randomize():
@@ -27,7 +28,8 @@ def ask_user():
         word_to_be_guessed = randomize()
         play(word_to_be_guessed)
     else:
-        print('Goodbye!')
+        print('Goodbye! Here is the summary of your game:')
+        show_score()
         exit()
 
 
@@ -52,18 +54,30 @@ def play(word_to_be_guessed):
             if "_" not in guessed_characters:
                 # "_" is not among the guessed characters.
                 # This means that all characters have been guessed.
-                print("".join(guessed_characters) + "  " + "Congratulations!!")
+                print("{} Congratulations!!".format(word_to_be_guessed))
                 print("You made total {} guesses.".format(number_of_guesses))
+                played_words.append(word_to_be_guessed)
+                played_words.append(number_of_guesses)
                 ask_user()
         elif len(player_input) > 1:
             # The player tried to guess the whole word.
             if player_input == word_to_be_guessed:
                 print("\nCongratulations!!! \n")
+                number_of_guesses += 1
+                played_words.append(word_to_be_guessed)
+                played_words.append(number_of_guesses)
                 ask_user()
         else:
             # The player gave an empty string.
             # That means that she does not want play any more.
             exit()
+
+
+def show_score():
+    played_words_count = len(played_words) // 2
+    print("\nWords        Guesses")
+    for i in range(played_words_count):
+        print("{}      {}".format(played_words[::2][i], played_words[1::2][i]))
 
 
 if __name__ == '__main__':
