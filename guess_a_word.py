@@ -33,6 +33,7 @@ def ask_user():
 
 def play(word_to_be_guessed):
     guessed_characters = len(word_to_be_guessed) * ["_"]
+    number_of_guesses = 0
     # Now guessed_characters refers to a list that contains as
     # many strings "_" as there are characters in the word to be guessed
     while True:
@@ -44,6 +45,7 @@ def play(word_to_be_guessed):
         # be converted to a single string.
         if len(player_input) == 1:
             # The player gave a single character
+            number_of_guesses += 1
             for character_index in range(len(word_to_be_guessed)):
                 if word_to_be_guessed[character_index] == player_input:
                     guessed_characters[character_index] = player_input
@@ -51,6 +53,7 @@ def play(word_to_be_guessed):
                 # "_" is not among the guessed characters.
                 # This means that all characters have been guessed.
                 print("".join(guessed_characters) + "  " + "Congratulations!!")
+                print("You made total {} guesses.".format(number_of_guesses))
                 ask_user()
         elif len(player_input) > 1:
             # The player tried to guess the whole word.
