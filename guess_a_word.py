@@ -1,20 +1,20 @@
 #!/usr/bin/python3
+
+import random
 #  GuessAWord.py  Copyright (c) Kari Laitinen
-
 #  http://www.naturalprogramming.com
-
 #  2009-01-06  First program version created.
 #  2013-10-10  Last modification.
 #  Solution and conversion to Python version 3 by Prakash Acharya, 15-03-2018
 #  Solution also modified to meet PEP8 guidelines for formatting
-
 #  This program is a simple computer game in which the player has to
 #  guess the characters of a word, or the player may also try to guess
 #  the whole word.
 
 print("\nThis is a GUESS-A-WORD game  \n")
-
-word_to_be_guessed = "VIENNA"
+capitals = ["VIENNA", "HELSINKI", "COPENHAGEN",
+            "LONDON", "BERLIN", "AMSTERDAM"]
+word_to_be_guessed = random.choice(capitals)
 
 guessed_characters = len(word_to_be_guessed) * ["_"]
 
