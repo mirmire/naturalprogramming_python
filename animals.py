@@ -43,8 +43,12 @@ class Animal:
             print("\n Unacceptable object was given to Animal constructor.")
 
     def feed(self, food_for_this_animal):
-
-        self.stomach_contents += food_for_this_animal + ","
+        if isinstance(food_for_this_animal, Animal):
+            self.stomach_contents += food_for_this_animal.animal_name + ","
+        elif isinstance(food_for_this_animal, str):
+            self.stomach_contents += food_for_this_animal + ","
+        else:
+            print("I could not eat what was given.")
 
     def make_speak(self):
 
@@ -80,10 +84,14 @@ dog_object.make_speak()
 another_cat.make_speak()
 
 cat_object.make_stomach_empty()
+cat_object.feed("mice")
 cat_object.make_speak()
 
 default_animal = Animal()
 default_animal.make_speak()
 
-yet_another_animal = Animal("Tiger")
-yet_another_animal.make_speak()
+cow_object = Animal("cow", "Bertha")
+
+tiger_object = Animal("Tiger", "Richard")
+tiger_object.feed(cow_object)
+tiger_object.make_speak()
