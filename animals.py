@@ -48,9 +48,13 @@ class Animal:
 
     def make_speak(self):
 
-        print("\nHello, I am a {0} named {1}.\nI have eaten: {2}\n"
-              .format(self.species_name, self.animal_name,
-                      self.stomach_contents))
+        print("\nHello, I am a {0} named {1}."
+              .format(self.species_name, self.animal_name))
+        if len(self.stomach_contents) == 0:
+            print("My stomach is empty.")
+        else:
+            print("I have eaten: {}\n"
+                  .format(self.stomach_contents))
 
     def make_stomach_empty(self):
         self.stomach_contents = ""
