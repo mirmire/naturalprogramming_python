@@ -47,6 +47,8 @@ class Animal:
 
         print("\nHello, I am a {0}.\nI have eaten: {1}\n"
               .format(self.species_name, self.stomach_contents))
+    def make_stomach_empty(self):
+        self.stomach_contents = ""
 
 
 #  The main program begins here.
@@ -67,3 +69,6 @@ another_cat.feed("milk")
 cat_object.make_speak()
 dog_object.make_speak()
 another_cat.make_speak()
+
+cat_object.make_stomach_empty()
+cat_object.make_speak()
