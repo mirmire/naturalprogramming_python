@@ -19,7 +19,8 @@
 
 class Animal:
 
-    def __init__(self, given_parameter="default animal"):
+    def __init__(self, given_parameter="default animal",
+                 animal_name='nameless'):
 
         if isinstance(given_parameter, str):
 
@@ -28,12 +29,14 @@ class Animal:
 
             self.species_name = given_parameter
             self.stomach_contents = ""
+            self.animal_name = animal_name
         elif isinstance(given_parameter, Animal):
 
             # A reference to an Animal object was given as an actual parameter.
             # The new Animal object will be a copy of the given Animal object.
 
             self.species_name = given_parameter.species_name
+            self.animal_name = given_parameter.animal_name
             self.stomach_contents = given_parameter.stomach_contents
 
         else:
@@ -45,8 +48,9 @@ class Animal:
 
     def make_speak(self):
 
-        print("\nHello, I am a {0}.\nI have eaten: {1}\n"
-              .format(self.species_name, self.stomach_contents))
+        print("\nHello, I am a {0} named {1}.\nI have eaten: {2}\n"
+              .format(self.species_name, self.animal_name,
+                      self.stomach_contents))
 
     def make_stomach_empty(self):
         self.stomach_contents = ""
@@ -54,8 +58,8 @@ class Animal:
 
 #  The main program begins here.
 
-cat_object = Animal("cat")
-dog_object = Animal("vegetarian dog")
+cat_object = Animal("cat", "Arnold")
+dog_object = Animal("vegetarian dog", "Puppy")
 
 cat_object.feed("fish")
 cat_object.feed("chicken")
@@ -76,3 +80,6 @@ cat_object.make_speak()
 
 default_animal = Animal()
 default_animal.make_speak()
+
+yet_another_animal = Animal("Tiger")
+yet_another_animal.make_speak()
