@@ -19,7 +19,7 @@
 
 class Animal:
 
-    def __init__(self, given_parameter):
+    def __init__(self, given_parameter="default animal"):
 
         if isinstance(given_parameter, str):
 
@@ -47,6 +47,7 @@ class Animal:
 
         print("\nHello, I am a {0}.\nI have eaten: {1}\n"
               .format(self.species_name, self.stomach_contents))
+
     def make_stomach_empty(self):
         self.stomach_contents = ""
 
@@ -72,3 +73,6 @@ another_cat.make_speak()
 
 cat_object.make_stomach_empty()
 cat_object.make_speak()
+
+default_animal = Animal()
+default_animal.make_speak()
