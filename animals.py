@@ -28,7 +28,7 @@ class Animal:
             #  Animal object with the given species name is being constructed.
 
             self.species_name = given_parameter
-            self.stomach_contents = ""
+            self.stomach_contents = []
             self.animal_name = animal_name
         elif isinstance(given_parameter, Animal):
 
@@ -37,31 +37,36 @@ class Animal:
 
             self.species_name = given_parameter.species_name
             self.animal_name = given_parameter.animal_name
-            self.stomach_contents = given_parameter.stomach_contents
+            self.stomach_contents = []
 
         else:
             print("\n Unacceptable object was given to Animal constructor.")
 
     def feed(self, food_for_this_animal):
         if isinstance(food_for_this_animal, Animal):
-            self.stomach_contents += food_for_this_animal.animal_name + ","
+            self.stomach_contents.append(food_for_this_animal.animal_name)
+
         elif isinstance(food_for_this_animal, str):
-            self.stomach_contents += food_for_this_animal + ","
+            self.stomach_contents.append(food_for_this_animal)
+
         else:
             print("I could not eat what was given.")
 
     def make_speak(self):
 
-        print("\nHello, I am a {0} named {1}."
+        print("Hello, I am a {0} named {1}."
               .format(self.species_name, self.animal_name))
         if len(self.stomach_contents) == 0:
             print("My stomach is empty.")
         else:
-            print("I have eaten: {}\n"
-                  .format(self.stomach_contents))
+            print("I have eaten: ", end=" ")
+            for item in self.stomach_contents:
+                print(item, end=', ')
+
+        print("\n")
 
     def make_stomach_empty(self):
-        self.stomach_contents = ""
+        self.stomach_contents = []
 
 
 #  The main program begins here.
