@@ -1,8 +1,24 @@
 #!/usr/bin/python2
 from iso_date import DateDistance, ISODate
-birthdate = ISODate(1994, 11, 03)
-date_now = ISODate()
 
+class AnotherDate(ISODate):
+    def to_anti_iso_format(self):
+        
+       day_as_string    =  "%02d"  %  self.this_day 
+
+       month_as_string  =  "%02d"  %  self.this_month
+
+       year_as_string   =  "%04d"  %  self.this_year
+
+       string_to_caller  =  day_as_string + "." + month_as_string  \
+                           + "."  +  year_as_string
+
+       return  string_to_caller
+
+
+birthdate = AnotherDate(1994, 11, 03)
+date_now = ISODate()
+print "Your birthday in anti ISO format is %s " % birthdate.to_anti_iso_format()
 distance_between = birthdate.get_distance_to(date_now)
 
 print "\nYou are %d years, %d months, and %d days" \
