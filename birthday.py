@@ -38,6 +38,7 @@ while years_to_celebrate < 80:
     years_to_celebrate += 10
 
 day_counter        =  0 
+second_counter = 0
 date_to_increment  =  ISODate( birthdate )
 while  day_counter < 20001 :
    day_counter += 1
@@ -48,3 +49,11 @@ while  day_counter < 20001 :
    elif day_counter == 20000:
         print "\nYou will be 20000 days old on %s (%s)" % (date_to_increment,
                                                            date_to_increment.get_day_of_week())
+days_to_increment = ISODate(birthdate)
+while second_counter < 1000000001:
+    second_counter += 1
+    if second_counter % (86400) == 0:
+        days_to_increment.increment()
+    
+    if second_counter == 1000000000:
+      print "You will be 1000000000 seconds old on %s" % days_to_increment
