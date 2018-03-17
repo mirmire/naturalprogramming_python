@@ -5,7 +5,7 @@ import random
 #  http://www.naturalprogramming.com
 #  2009-01-06  First program version created.
 
-#  Solution and conversion to Python version 3 by Prakash Acharya, 15-03-2018
+#  Solution and conversion to Python version 3 by Prakash Acharya, 17-03-2018
 #  Solution also modified to meet PEP8 guidelines for formatting
 
 #  This program is a simple computer game in which the player has to
