@@ -38,8 +38,7 @@ def play(word_to_be_guessed):
     number_of_guesses = 0
 
     def append_to_list(word_to_be_guessed, number_of_guesses):
-        played_words.append(word_to_be_guessed)
-        played_words.append(number_of_guesses)
+        played_words.append([word_to_be_guessed, number_of_guesses])
         ask_user()
 
     # Now guessed_characters refers to a list that contains as
@@ -78,10 +77,9 @@ def play(word_to_be_guessed):
 
 
 def show_score():
-    played_words_count = len(played_words) // 2
-    print("\nWords        Guesses")
-    for i in range(played_words_count):
-        print("{}      {}".format(played_words[::2][i], played_words[1::2][i]))
+    print("\nWORDS          GUESSES")
+    for words, counts in played_words:
+        print(words.ljust(16) + " " + str(counts))
 
 
 if __name__ == '__main__':
