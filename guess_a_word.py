@@ -66,9 +66,9 @@ def play(word_to_be_guessed):
 
         elif len(player_input) > 1:
             # The player tried to guess the whole word.
+            number_of_guesses += 1
             if player_input == word_to_be_guessed:
                 print("\nCongratulations!!! \n")
-                number_of_guesses += 1
                 append_to_list(word_to_be_guessed, number_of_guesses)
         else:
             # The player gave an empty string.
@@ -79,7 +79,7 @@ def play(word_to_be_guessed):
 def show_score():
     print("\nWORDS          GUESSES")
     for words, counts in played_words:
-        print(words.ljust(16) + " " + str(counts))
+        print(words.ljust(16), str(counts))
 
 
 if __name__ == '__main__':
